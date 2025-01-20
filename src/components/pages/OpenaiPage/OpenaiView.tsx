@@ -1,29 +1,56 @@
-import React from "react";
+import React, { FormEvent, useState } from "react";
 
 const OpenaiView: React.FC = () => {
-  // TODO: Create a simple input box where we can insert a message,
-  // and a submit button.
-  // Once we receive a response from the back-end server
-  // without any errors, we should display it in a text field.
+  const [openaiResult, setOpenaiResult] = useState<string>("");
+  const [openaiQuestion, setOpenaiQuestion] = useState<string>("");
 
-  // TODO: Figure out how to get an input.
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!openaiQuestion.trim().length) {
+      // error
+      return;
+    }
+
+    setOpenaiResult(openaiQuestion);
+
+    // You can pass formData as a fetch body directly:
+    // event.target
+    // Make a request the back-end to openai endpoint,
+    // retrieve the neccessary information
+    // set the information into openaiResult and render
+    // in a separate div section.
+  };
 
   return (
     <div className="my-class">
-      <h2>OpenAI section</h2>
-      <form method="get" id="testformid" onSubmit={() => {}}>
-        <input type="submit" />
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <h2>Ask OpenAI</h2>
+        <textarea
+          autoFocus={true}
+          required
+          name="taname"
+          rows={8}
+          cols={38}
+          wrap="soft"
+          value={openaiQuestion}
+          onChange={(e) => setOpenaiQuestion(e.target.value)}
+        />
+        <div>
+          <button type="submit">Send Request</button>
+        </div>
       </form>
-      <textarea
-        form="testformid"
-        name="taname"
-        id="taid"
-        rows={8}
-        cols={38}
-        wrap="soft"
-      >
-        Enter your questions here...
-      </textarea>
+
+      <div className="my-class">
+        <h2>Result</h2>
+        <textarea
+          readOnly
+          rows={8}
+          cols={38}
+          wrap="soft"
+          value={openaiResult}
+        />
+      </div>
     </div>
   );
 };
