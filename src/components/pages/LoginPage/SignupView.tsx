@@ -47,7 +47,7 @@ const SignUpView: React.FC<SignUpData> = ({
         />
       </div>
       {/* TODO: Put in a separte button component */}
-      <button onClick={clearAll}>Sign Up</button>
+      <button onClick={clearAll}>Create account</button>
     </form>
   );
 };

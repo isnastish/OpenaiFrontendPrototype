@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import LoginView from "./LoginView";
 import SignUpView from "./SignupView";
@@ -13,6 +14,8 @@ const LoginPresenter: React.FC = () => {
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
 
   const [accountExists, setAccountExists] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const clearAll = () => {
     console.log(`clear all input data and errors`);
@@ -65,21 +68,26 @@ const LoginPresenter: React.FC = () => {
       };
 
       try {
-        const resp = await fetch("/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(requestBody),
-        });
+        // const resp = await fetch("/signup", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   credentials: "include",
+        //   body: JSON.stringify(requestBody),
+        // });
 
-        if (resp.status !== 200) {
-          const errorMsg = await resp.text();
-          throw new Error(errorMsg);
-        } else {
-          // TODO: redirect to home page.
-        }
+        // if (resp.status !== 200) {
+        //   const errorMsg = await resp.text();
+        //   throw new Error(errorMsg);
+        // } else {
+        //   // NOTE: An article about useHistory & useNavigate:
+        //   // https://medium.com/@arshguleria1612/upgrade-your-react-navigation-replace-usehistory-with-usenavigate-for-efficient-routing-1708eb7ad672
+        //   // NOTE: Should navigate to /home page instead.
+        //   // setAccountExists(true);
+        //   navigate("/openai");
+        // }
+        navigate("/openai");
       } catch (err) {
         console.error(err);
       }
@@ -111,7 +119,7 @@ const LoginPresenter: React.FC = () => {
         setPassword={SetPassword}
         confirmedPassword={confirmedPassword}
         setConfirmedPassword={setConfirmedPassword}
-        handleSignUp={handleSignUp} 
+        handleSignUp={handleSignUp}
         clearAll={clearAll}
       />
     );
