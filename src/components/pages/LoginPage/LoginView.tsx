@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import LoginData from "../../../models/LoginData";
 
@@ -8,13 +8,9 @@ const LoginView: React.FC<LoginData> = ({
   password,
   setPassword,
   handleLogin,
+  clearAll,
 }) => {
-  return (
-    <Fragment>
-      <form onSubmit={handleLogin}>
-      </form>
-    </Fragment>
-  );
+  return <></>;
 };
 
 export default LoginView;

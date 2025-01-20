@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 
 import LoginView from "./LoginView";
 import SignUpView from "./SignupView";
@@ -14,7 +14,13 @@ const LoginPresenter: React.FC = () => {
 
   const [accountExists, setAccountExists] = useState<boolean>(false);
 
-  const handleLogin = async () => {
+  const clearAll = () => {
+    console.log(`clear all input data and errors`);
+  };
+
+  const handleLogin = async (event: FormEvent) => {
+    event.preventDefault();
+
     let hasError = false;
 
     if (!email.trim().length) {
@@ -25,7 +31,9 @@ const LoginPresenter: React.FC = () => {
     }
   };
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (event: FormEvent) => {
+    event.preventDefault();
+
     let hasError = false;
 
     if (password !== confirmedPassword) {
@@ -87,6 +95,7 @@ const LoginPresenter: React.FC = () => {
         password={password}
         setPassword={SetPassword}
         handleLogin={handleLogin}
+        clearAll={clearAll}
       />
     );
   } else {
@@ -102,7 +111,8 @@ const LoginPresenter: React.FC = () => {
         setPassword={SetPassword}
         confirmedPassword={confirmedPassword}
         setConfirmedPassword={setConfirmedPassword}
-        handleSignUp={handleSignUp}
+        handleSignUp={handleSignUp} 
+        clearAll={clearAll}
       />
     );
   }

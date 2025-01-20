@@ -1,3 +1,5 @@
+import { FormEvent } from "react";
+
 interface SignUpData {
   firstName: string;
   setFirstName: (firstName: string) => void;
@@ -7,6 +9,7 @@ interface SignUpData {
 
   email: string;
   setEmail: (email: string) => void;
+  // TODO: Speify email error as well.
 
   password: string;
   setPassword: (password: string) => void;
@@ -14,7 +17,9 @@ interface SignUpData {
   confirmedPassword: string;
   setConfirmedPassword: (password: string) => void;
 
-  handleSignUp: () => void;
+  handleSignUp: (event: FormEvent) => void;
+
+  clearAll: () => void;
 }
 
 export default SignUpData;
