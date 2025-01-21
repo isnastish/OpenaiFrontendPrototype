@@ -1,25 +1,25 @@
 import { FormEvent } from "react";
 
 interface SignUpData {
-  firstName: string;
-  setFirstName: (firstName: string) => void;
+    firstName: string;
+    setFirstName: (firstName: string) => void;
 
-  lastName: string;
-  setLastName: (lastName: string) => void;
+    lastName: string;
+    setLastName: (lastName: string) => void;
 
-  email: string;
-  setEmail: (email: string) => void;
-  // TODO: Speify email error as well.
+    email: string;
+    setEmail: (email: string) => void;
+    // TODO: Speify email error as well.
 
-  password: string;
-  setPassword: (password: string) => void;
+    password: string;
+    setPassword: (password: string) => void;
 
-  confirmedPassword: string;
-  setConfirmedPassword: (password: string) => void;
+    confirmedPassword: string;
+    setConfirmedPassword: (password: string) => void;
 
-  handleSignUp: (event: FormEvent) => void;
+    handleSignUp: (event: FormEvent) => void;
 
-  clearAll: () => void;
+    clearAll: () => void;
 }
 
 export default SignUpData;
