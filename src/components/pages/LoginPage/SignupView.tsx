@@ -1,3 +1,5 @@
+import React from "react";
+
 import SignUpData from "../../../models/SignUpData";
 import FormInput from "../../common/inputs/FormInput";
 

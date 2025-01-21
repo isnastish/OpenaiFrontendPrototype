@@ -21,7 +21,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier -c .prettierrc --write --tab-width 4 './src/**/*.{ts,tsx}' && eslint ./src --fix",
+    "lint": "prettier -c .prettierrc --check --tab-width 4 './src/**/*.{ts,tsx}' && eslint ./src",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,7 @@
     "eslint": "^9.18.0",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^15.14.0",
+    "husky": "^9.1.7",
     "prettier": "3.4.2",
     "typescript-eslint": "^8.21.0"
   }
