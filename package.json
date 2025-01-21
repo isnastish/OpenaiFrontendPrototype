@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier -c .prettierrc --write --tab-width 4 './src/**/*.{ts,tsx}' && eslint ./src --fix",
-    "lint": "prettier -c .prettierrc --check --tab-width 4 './src/**/*.{ts,tsx}' && eslint ./src"
+    "lint": "prettier -c .prettierrc --check --tab-width 4 './src/**/*.{ts,tsx}' && eslint ./src",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
