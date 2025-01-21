@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./App.css";
 import LoginPresenter from "./components/pages/LoginPage/LoginPresenter";
 import OpenaiView from "./components/pages/OpenaiPage/OpenaiView";
