@@ -1,17 +1,17 @@
-import React, { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import LoginView from "./LoginView";
-import SignUpView from "./SignupView";
+import LoginView from './LoginView';
+import SignUpView from './SignupView';
 
 const LoginPresenter: React.FC = () => {
-    const [firstName, setFirstName] = useState<string>("");
-    const [lastName, setLastName] = useState<string>("");
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
 
-    const [email, setEmail] = useState<string>("");
+    const [email, setEmail] = useState<string>('');
 
-    const [password, SetPassword] = useState<string>("");
-    const [confirmedPassword, setConfirmedPassword] = useState<string>("");
+    const [password, SetPassword] = useState<string>('');
+    const [confirmedPassword, setConfirmedPassword] = useState<string>('');
 
     const [accountExists, setAccountExists] = useState<boolean>(false);
 
@@ -70,12 +70,12 @@ const LoginPresenter: React.FC = () => {
             };
 
             try {
-                const resp = await fetch("/signup", {
-                    method: "POST",
+                const resp = await fetch('/signup', {
+                    method: 'POST',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
-                    credentials: "include",
+                    credentials: 'include',
                     body: JSON.stringify(requestBody),
                 });
 
@@ -87,14 +87,14 @@ const LoginPresenter: React.FC = () => {
                     // https://medium.com/@arshguleria1612/upgrade-your-react-navigation-replace-usehistory-with-usenavigate-for-efficient-routing-1708eb7ad672
                     // NOTE: Should navigate to /home page instead.
                     // setAccountExists(true);
-                    navigate("/openai");
+                    navigate('/openai');
                 }
-                navigate("/openai");
+                navigate('/openai');
             } catch (err) {
                 console.error(err);
             }
         } else {
-            console.log("TODO");
+            console.log('TODO');
         }
     };
 
