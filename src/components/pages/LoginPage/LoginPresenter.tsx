@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import LoginView from './LoginView';
@@ -26,7 +26,6 @@ const LoginPresenter: React.FC = () => {
 
     const handleLogin = async (event: FormEvent) => {
         event.preventDefault();
-
         // let hasError = false;
 
         // if (!email.trim().length) {
