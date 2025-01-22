@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import SignUpData from "../../../models/SignUpData";
-import FormInput from "../../common/inputs/FormInput";
+import SignUpData from '../../../models/SignUpData';
+import FormInput from '../../common/inputs/FormInput';
 
 const SignUpView: React.FC<SignUpData> = ({
     firstName,

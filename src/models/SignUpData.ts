@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent } from 'react';
 
 interface SignUpData {
     firstName: string;

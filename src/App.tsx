@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import "./App.css";
-import LoginPresenter from "./components/pages/LoginPage/LoginPresenter";
-import OpenaiView from "./components/pages/OpenaiPage/OpenaiView";
+import './App.css';
+import LoginPresenter from './components/pages/LoginPage/LoginPresenter';
+import OpenaiView from './components/pages/OpenaiPage/OpenaiView';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
     return (

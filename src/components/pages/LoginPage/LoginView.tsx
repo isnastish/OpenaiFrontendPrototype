@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import LoginData from "../../../models/LoginData";
-import FormInput from "../../common/inputs/FormInput";
+import LoginData from '../../../models/LoginData';
+import FormInput from '../../common/inputs/FormInput';
 
 const LoginView: React.FC<LoginData> = ({
     email,

@@ -1,8 +1,8 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState } from 'react';
 
 const OpenaiView: React.FC = () => {
-    const [openaiResult, setOpenaiResult] = useState<string>("");
-    const [openaiQuestion, setOpenaiQuestion] = useState<string>("");
+    const [openaiResult, setOpenaiResult] = useState<string>('');
+    const [openaiQuestion, setOpenaiQuestion] = useState<string>('');
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
