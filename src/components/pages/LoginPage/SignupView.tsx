@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import SignUpData from "../../../models/SignUpData";
-import FormInput from "../../common/inputs/FormInput";
+import SignUpData from '../../../models/SignUpData';
+import FormInput from '../../common/inputs/FormInput';
 
 const SignUpView: React.FC<SignUpData> = ({
     firstName,
@@ -51,7 +51,7 @@ const SignUpView: React.FC<SignUpData> = ({
                 />
             </div>
             {/* TODO: Put in a separte button component */}
-            <button onClick={clearAll}>Create account</button>
+            <button className="button" onClick={clearAll}>Create account</button>
         </form>
     );
 };

@@ -5,6 +5,8 @@ const OpenaiView: React.FC = () => {
     const [openaiQuestion, setOpenaiQuestion] = useState<string>('');
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        console.log('handle /openai route');
+
         event.preventDefault();
 
         if (!openaiQuestion.trim().length) {

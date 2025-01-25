@@ -15,9 +15,6 @@ const LoginPresenter: React.FC = () => {
 
     const [accountExists, setAccountExists] = useState<boolean>(false);
 
-    // TODO: Fix for eslint
-    setAccountExists(accountExists);
-
     const navigate = useNavigate();
 
     const clearAll = () => {
