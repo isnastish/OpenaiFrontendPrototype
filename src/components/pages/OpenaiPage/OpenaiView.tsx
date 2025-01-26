@@ -26,6 +26,9 @@ const OpenaiView: React.FC = () => {
         // in a separate div section.
     };
 
+    const textareaRowsCount = 8;
+    const textareaColumnsCount = 38;
+
     return (
         <Fragment>
             <header className="openai-header">Ask openai</header>
@@ -34,8 +37,8 @@ const OpenaiView: React.FC = () => {
                     <textarea
                         autoFocus={true}
                         required
-                        rows={8}
-                        cols={38}
+                        rows={textareaRowsCount}
+                        cols={textareaColumnsCount}
                         placeholder="Enter text here..."
                         wrap="soft"
                         value={openaiQuestion}
@@ -45,8 +48,8 @@ const OpenaiView: React.FC = () => {
                 <p>
                     <textarea
                         readOnly
-                        rows={8}
-                        cols={38}
+                        rows={textareaRowsCount}
+                        cols={textareaColumnsCount}
                         placeholder="Response..."
                         wrap="soft"
                         value={openaiResult}
