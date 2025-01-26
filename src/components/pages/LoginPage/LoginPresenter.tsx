@@ -120,6 +120,8 @@ const LoginPresenter: React.FC = () => {
                 setConfirmedPassword={setConfirmedPassword}
                 handleSignUp={handleSignUp}
                 clearAll={clearAll}
+                accountExists={accountExists}
+                setAccountExists={setAccountExists}
             />
         );
     }

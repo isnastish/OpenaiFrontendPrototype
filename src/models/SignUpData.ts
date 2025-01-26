@@ -20,6 +20,10 @@ interface SignUpData {
     handleSignUp: (event: FormEvent) => void;
 
     clearAll: () => void;
+
+    accountExists: boolean;
+
+    setAccountExists: (accountExists: boolean) => void;
 }
 
 export default SignUpData;

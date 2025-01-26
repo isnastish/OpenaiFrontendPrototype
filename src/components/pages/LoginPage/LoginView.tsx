@@ -12,23 +12,27 @@ const LoginView: React.FC<LoginData> = ({
     clearAll,
 }) => {
     return (
-        <form onSubmit={(e) => handleLogin(e)}>
-            <h2>Login</h2>
-            <div className="my-class">
-                <FormInput
-                    isAutoFocus={true}
-                    labelText="Email"
-                    value={email}
-                    onChangeHandler={(e) => setEmail(e.target.value)}
-                />
-                <FormInput
-                    labelText="Password"
-                    value={password}
-                    onChangeHandler={(e) => setPassword(e.target.value)}
-                />
-            </div>
-            <button onClick={clearAll}>Sign In</button>
-        </form>
+        <div className="login-presenter-class">
+            <form id="login-form" onSubmit={(e) => handleLogin(e)}>
+                <h2>Login</h2>
+                <div className="my-class">
+                    <FormInput
+                        isAutoFocus={true}
+                        labelText="Email"
+                        value={email}
+                        onChangeHandler={(e) => setEmail(e.target.value)}
+                    />
+                    <FormInput
+                        labelText="Password"
+                        value={password}
+                        onChangeHandler={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+            </form>
+            <button onClick={clearAll} form="login-form">
+                Sign In
+            </button>
+        </div>
     );
 };
 
