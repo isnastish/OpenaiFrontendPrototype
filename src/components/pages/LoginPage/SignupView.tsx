@@ -17,12 +17,14 @@ const SignUpView: React.FC<SignUpData> = ({
     setConfirmedPassword,
     handleSignUp,
     clearAll,
+    accountExists,
+    setAccountExists,
 }) => {
     return (
         <Fragment>
-            <form id="signup-form" onSubmit={(e) => handleSignUp(e)}>
-                <div className="login-presenter-class">
-                    <h2>SignUp</h2>
+            <div className="login-presenter-class">
+                <form id="signup-form" onSubmit={(e) => handleSignUp(e)}>
+                    <h2>Sign Up</h2>
                     <FormInput
                         isAutoFocus={true}
                         labelText="First name"
@@ -51,17 +53,24 @@ const SignUpView: React.FC<SignUpData> = ({
                             setConfirmedPassword(e.target.value)
                         }
                     />
-                </div>
-            </form>
-            <p className="form-actions">
+                </form>
+                <p className="form-actions">
+                    <button
+                        className="submit-button"
+                        form="signup-form"
+                        onClick={clearAll}
+                    >
+                        Create account
+                    </button>
+                </p>
+            </div>
+            <div className="login-presenter-class">
+                <label>Already have an account? </label>
                 <button
-                    className="button"
-                    form="signup-form"
-                    onClick={clearAll}
-                >
-                    Create account
-                </button>
-            </p>
+                    className="submit-button"
+                    onClick={() => setAccountExists(!accountExists)}
+                >Sign in</button>
+            </div>
         </Fragment>
     );
 };

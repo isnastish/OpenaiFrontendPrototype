@@ -18,10 +18,14 @@ const FormInput: React.FC<FormInputData> = ({
     value,
     onChangeHandler,
 }) => {
+    const inputId = labelText.replace(' ', '-').toLowerCase();
+    console.log(inputId);
+
     return (
-        <div className="input-class">
-            <label htmlFor="input-label">{labelText}</label>
+        <div className="control no-margin">
+            <label htmlFor={inputId}>{labelText}</label>
             <input
+                id={inputId}
                 type="text"
                 autoFocus={isAutoFocus ? true : false}
                 required
