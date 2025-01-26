@@ -103,6 +103,8 @@ const LoginPresenter: React.FC = () => {
                 setPassword={SetPassword}
                 handleLogin={handleLogin}
                 clearAll={clearAll}
+                accountExists={accountExists}
+                setAccountExists={setAccountExists}
             />
         );
     } else {

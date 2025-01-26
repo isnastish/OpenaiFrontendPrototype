@@ -12,6 +12,10 @@ interface LoginData {
     handleLogin: (event: FormEvent) => void;
 
     clearAll: () => void;
+
+    accountExists: boolean;
+
+    setAccountExists: (accountExists: boolean) => void;
 }
 
 export default LoginData;
