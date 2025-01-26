@@ -12,7 +12,7 @@ const LoginView: React.FC<LoginData> = ({
     clearAll,
 }) => {
     return (
-        <div className='login-presenter-class'>
+        <div className="login-presenter-class">
             <form id="login-form" onSubmit={(e) => handleLogin(e)}>
                 <h2>Login</h2>
                 <div className="my-class">

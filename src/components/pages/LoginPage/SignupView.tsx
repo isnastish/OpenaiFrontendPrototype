@@ -69,7 +69,9 @@ const SignUpView: React.FC<SignUpData> = ({
                 <button
                     className="submit-button"
                     onClick={() => setAccountExists(!accountExists)}
-                >Sign in</button>
+                >
+                    Sign in
+                </button>
             </div>
         </Fragment>
     );
