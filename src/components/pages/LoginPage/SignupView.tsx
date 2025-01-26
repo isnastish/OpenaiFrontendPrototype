@@ -2,6 +2,7 @@ import React from 'react';
 
 import SignUpData from '../../../models/SignUpData';
 import FormInput from '../../common/inputs/FormInput';
+import './LoginPresenter.css';
 
 const SignUpView: React.FC<SignUpData> = ({
     firstName,
@@ -19,8 +20,8 @@ const SignUpView: React.FC<SignUpData> = ({
 }) => {
     return (
         <form onSubmit={(e) => handleSignUp(e)}>
-            <h2>SignUp</h2>
-            <div className="my-class">
+            <div className="login-presenter-class">
+                <h2>SignUp</h2>
                 <FormInput
                     isAutoFocus={true}
                     labelText="First name"
@@ -51,7 +52,9 @@ const SignUpView: React.FC<SignUpData> = ({
                 />
             </div>
             {/* TODO: Put in a separte button component */}
-            <button onClick={clearAll}>Create account</button>
+            <button className="button" onClick={clearAll}>
+                Create account
+            </button>
         </form>
     );
 };

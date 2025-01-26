@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './App.css';
 import LoginPresenter from './components/pages/LoginPage/LoginPresenter';
 import OpenaiView from './components/pages/OpenaiPage/OpenaiView';
@@ -11,8 +9,6 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/openai" element={<OpenaiView />} />
-                {/* In react router v6 we should specify multiple routes, 
-        we cannot put paths into {}, or we could use useRoutes hook. */}
                 <Route path="/login" element={<LoginPresenter />} />
                 <Route path="/" element={<LoginPresenter />} />
             </Routes>

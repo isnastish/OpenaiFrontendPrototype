@@ -1,10 +1,14 @@
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, Fragment, useState } from 'react';
+
+import './OpenaiPage.css';
 
 const OpenaiView: React.FC = () => {
     const [openaiResult, setOpenaiResult] = useState<string>('');
     const [openaiQuestion, setOpenaiQuestion] = useState<string>('');
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        console.log('handle /openai route');
+
         event.preventDefault();
 
         if (!openaiQuestion.trim().length) {
@@ -23,35 +27,42 @@ const OpenaiView: React.FC = () => {
     };
 
     return (
-        <div className="my-class">
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <h2>Ask OpenAI</h2>
-                <textarea
-                    autoFocus={true}
-                    required
-                    name="taname"
-                    rows={8}
-                    cols={38}
-                    wrap="soft"
-                    value={openaiQuestion}
-                    onChange={(e) => setOpenaiQuestion(e.target.value)}
-                />
-                <div>
-                    <button type="submit">Send Request</button>
-                </div>
-            </form>
-
-            <div className="my-class">
-                <h2>Result</h2>
-                <textarea
-                    readOnly
-                    rows={8}
-                    cols={38}
-                    wrap="soft"
-                    value={openaiResult}
-                />
+        <Fragment>
+            <header className="openai-header">Ask openai</header>
+            <div className="openai-class">
+                <form id="openai-submit" onSubmit={(e) => handleSubmit(e)}>
+                    <textarea
+                        autoFocus={true}
+                        required
+                        rows={8}
+                        cols={38}
+                        placeholder="Enter text here..."
+                        wrap="soft"
+                        value={openaiQuestion}
+                        onChange={(e) => setOpenaiQuestion(e.target.value)}
+                    />
+                </form>
+                <p>
+                    <textarea
+                        readOnly
+                        rows={8}
+                        cols={38}
+                        placeholder="Response..."
+                        wrap="soft"
+                        value={openaiResult}
+                    />
+                </p>
+                <p>
+                    <button
+                        className="submit-button"
+                        form="openai-submit"
+                        type="submit"
+                    >
+                        Send Request
+                    </button>
+                </p>
             </div>
-        </div>
+        </Fragment>
     );
 };
 

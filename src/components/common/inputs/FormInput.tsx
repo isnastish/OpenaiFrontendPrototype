@@ -1,3 +1,5 @@
+import './FormatInput.css';
+
 import React, { ChangeEvent } from 'react';
 
 interface FormInputData {
