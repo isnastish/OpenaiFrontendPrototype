@@ -34,3 +34,8 @@
     background-color: #869999;
     color: #142020;
 }
+
+.errorText {
+    font-size: 12px;
+    color: red;
+}

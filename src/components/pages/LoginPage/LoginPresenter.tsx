@@ -9,9 +9,15 @@ const LoginPresenter: React.FC = () => {
     const [lastName, setLastName] = useState<string>('');
 
     const [email, setEmail] = useState<string>('');
+    const [emailError, setEmailError] = useState<string>('');
 
-    const [password, SetPassword] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [passwordError, setPasswordError] = useState<string>('');
+
     const [confirmedPassword, setConfirmedPassword] = useState<string>('');
+    const [password1Error, setPassword1Error] = useState<string>('');
+
+    const [authError, setAuthError] = useState<string>('');
 
     const [accountExists, setAccountExists] = useState<boolean>(false);
 
@@ -23,22 +29,60 @@ const LoginPresenter: React.FC = () => {
 
     const handleLogin = async (event: FormEvent) => {
         event.preventDefault();
-        // let hasError = false;
+        let hasError = false;
 
-        // if (!email.trim().length) {
-        //     hasError = true;
-        // }
+        if (!email.trim().length) {
+            setEmailError('Email address cannot be empty');
+            hasError = true;
+        }
 
-        // if (!hasError) {
-        // }
+        if (password.length <= 8 || password.length > 64) {
+            setPasswordError(
+                'Password should be more than 8 and less than 64 characters'
+            );
+        }
+
+        if (hasError) {
+            console.log('An error occured');
+            return;
+        }
+
+        try {
+            const resp = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email, password: password }),
+                credentials: 'include',
+            });
+
+            if (!resp.ok) {
+                if (resp.status === 401) {
+                    setAuthError(await resp.text());
+                } else {
+                    // NOTE: Setting auth error for testing purposes now.
+                    setAuthError(await resp.text());
+                    // throw new Error(await resp.text());
+                }
+
+                return;
+            }
+
+            navigate('/opeani');
+        } catch (err) {
+            // TODO: Dispaly an error message, that something went wrong.
+            // We probably should create a separate component for that.
+        }
     };
 
     const handleSignUp = async (event: FormEvent) => {
         event.preventDefault();
 
         let hasError = false;
+
         if (password !== confirmedPassword) {
-            // password doesn't match
+            setPassword1Error("Passwords don't match");
             hasError = true;
         }
 
@@ -99,9 +143,14 @@ const LoginPresenter: React.FC = () => {
             <LoginView
                 email={email}
                 setEmail={setEmail}
+                emailError={emailError}
                 password={password}
-                setPassword={SetPassword}
+                setPassword={setPassword}
+                passwordError={passwordError}
                 handleLogin={handleLogin}
+                authError={authError}
+                accountExists={accountExists}
+                setAccountExists={setAccountExists}
                 clearAll={clearAll}
             />
         );
@@ -115,7 +164,7 @@ const LoginPresenter: React.FC = () => {
                 email={email}
                 setEmail={setEmail}
                 password={password}
-                setPassword={SetPassword}
+                setPassword={setPassword}
                 confirmedPassword={confirmedPassword}
                 setConfirmedPassword={setConfirmedPassword}
                 handleSignUp={handleSignUp}
