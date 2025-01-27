@@ -3,19 +3,19 @@ import { FormEvent } from 'react';
 interface LoginData {
     email: string;
     setEmail: (email: string) => void;
+    emailError: string;
 
     password: string;
     setPassword: (password: string) => void;
+    passwordError: string;
 
-    // TODO: Probably we could get by without using event.
-    // but that would require not using form html tag.
     handleLogin: (event: FormEvent) => void;
-
-    clearAll: () => void;
+    authError: string;
 
     accountExists: boolean;
-
     setAccountExists: (accountExists: boolean) => void;
+
+    clearAll: () => void;
 }
 
 export default LoginData;

@@ -6,12 +6,15 @@ import FormInput from '../../common/inputs/FormInput';
 const LoginView: React.FC<LoginData> = ({
     email,
     setEmail,
+    emailError,
     password,
     setPassword,
+    passwordError,
     handleLogin,
-    clearAll,
+    authError,
     accountExists,
     setAccountExists,
+    clearAll,
 }) => {
     return (
         <Fragment>
@@ -25,11 +28,13 @@ const LoginView: React.FC<LoginData> = ({
                             value={email}
                             onChangeHandler={(e) => setEmail(e.target.value)}
                         />
+                        <p className="errorText">{emailError}</p>
                         <FormInput
                             labelText="Password"
                             value={password}
                             onChangeHandler={(e) => setPassword(e.target.value)}
                         />
+                        <p className="errorText">{passwordError}</p>
                     </div>
                 </form>
                 <p>
@@ -41,6 +46,7 @@ const LoginView: React.FC<LoginData> = ({
                         Sign In
                     </button>
                 </p>
+                <p className="errorText">{authError}</p>
             </div>
             <div className="login-presenter-class">
                 <label>Don&#39;t have an account? </label>
